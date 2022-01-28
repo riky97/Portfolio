@@ -219,36 +219,30 @@ h6 {
 
 .header {
   width: 100%;
-  height: 55vh;
-  background: rgba(0, 0, 0, 0.3);
+  min-height: 60vh;
+  background: rgba(0, 0, 0, 0.3) !important;
 }
-.header .navbar {
+.header .header-navbar {
   background: #1d2023;
   background: #141414;
-  width: 100%;
+  width: 100% !important;
   height: 4em;
-  display: grid;
-  place-items: center;
+  display: grid !important;
+  place-items: center !important;
   position: fixed;
   z-index: 100000;
 }
-.header .navbar .navabar-link {
-  width: 40%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
 
-.header .navbar .navabar-link a {
+.navabar-link a {
   text-transform: uppercase;
   font-family: "Times New Roman", Times, serif;
 }
 
-.header .navbar .navabar-link a:hover {
+.navabar-link a:hover {
   color: var(--site-text-a-color) !important;
 }
 
-.header .navbar .navabar-link a.item-selected {
+.header .header-navbar .navabar-link a.item-selected {
   text-decoration: underline;
   color: var(--site-text-a-color) !important;
 }
@@ -331,11 +325,17 @@ h6 {
     display: grid;
     place-items: center;
   }
-  .header .navbar {
+  .header .header-navbar {
     width: 100%;
   }
-  .header .navbar .navabar-link {
+  .header .header-navbar .navabar-link {
     width: 80%;
+  }
+}
+@media screen and (min-width: 982px) {
+  .navabar-link {
+    display: flex;
+    justify-content: center;
   }
 }
 
@@ -412,10 +412,7 @@ section.about .about-card .skills .container {
   place-items: center;
 }
 section.about .about-card .skills .container .row {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 60%;
+  width: 70%;
 }
 section.about .about-card .skills .container .row .icon {
   width: 3em;
@@ -424,24 +421,28 @@ section.about .about-card .skills .container .row .icon {
 section.about .about-card .skills .container .row .icon-js {
   border-radius: 50%;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
+  section.about {
+    min-height: 120vh;
+  }
   section.about .about-card {
     display: block;
   }
   section.about .about-card .about-content-card {
     display: block;
+    text-align: center;
     width: 100%;
   }
   section.about .about-card .about-content-card .about-frame {
-    width: 100%;
-    height: 30%;
-    display: grid;
+    max-width: 100%;
+    height: 50%;
+    display: grid !important;
     place-items: center;
   }
   section.about .about-card .about-content-card .about-frame .image-profile {
-    width: 50%;
-    height: 100%;
-    object-fit: cover;
+    display: block;
+    max-width: 50%;
+    max-height: 90%;
     border-radius: 100%;
     z-index: 1000;
   }
@@ -454,7 +455,27 @@ section.about .about-card .skills .container .row .icon-js {
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (max-width: 450px) {
+  section.about {
+    min-height: 100vh;
+  }
+  section.about .about-card {
+    width: 90%;
+    height: 90%;
+  }
+  section.about .about-card .about-content-card {
+    max-height: 80%;
+  }
+  section.about .about-card .about-content-card .about-frame {
+    max-height: 45%;
+  }
+  section.about .about-card .about-content-card .about-frame .image-profile {
+    display: block;
+    max-width: 50%;
+    max-height: 70%;
+    border-radius: 100%;
+    z-index: 1000;
+  }
 }
 
 @media screen and (min-width: 1400px) {
@@ -485,7 +506,7 @@ section.project h3 {
   text-align: center;
 }
 
-section.project .container {
+section.project .containerProj {
   max-width: 80vw;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -493,7 +514,7 @@ section.project .container {
   margin: 0 auto;
   padding: 40px 0;
 }
-section.project .container .card {
+section.project .containerProj .card {
   width: 230px;
   height: 360px;
   margin: 0 auto;
@@ -613,7 +634,8 @@ figure figcaption img {
 }
 
 /* Fading animation */
-.fade {
+
+.fades {
   -webkit-animation-name: fade;
   -webkit-animation-duration: 1.5s;
   animation-name: fade;
@@ -638,13 +660,13 @@ figure figcaption img {
   }
 }
 @media screen and (max-width: 1000px) {
-  section.project .container {
+  section.project .containerProj {
     display: none;
   }
   section.project .slideshow-container {
     display: block;
   }
-  section.project .slideshow-container .container {
+  section.project .slideshow-container .containerProj {
     display: block;
   }
   .dot {
