@@ -219,18 +219,8 @@ h6 {
 
 .header {
   width: 100%;
-  min-height: 60vh;
+  min-height: 70vh;
   background: rgba(0, 0, 0, 0.3) !important;
-}
-.header .header-navbar {
-  background: #1d2023;
-  background: #141414;
-  width: 100% !important;
-  height: 4em;
-  display: grid !important;
-  place-items: center !important;
-  position: fixed;
-  z-index: 100000;
 }
 
 .navabar-link a {
@@ -242,16 +232,17 @@ h6 {
   color: var(--site-text-a-color) !important;
 }
 
-.header .header-navbar .navabar-link a.item-selected {
-  text-decoration: underline;
-  color: var(--site-text-a-color) !important;
-}
 .header .header-description {
   padding-top: 6em;
-  height: 80%;
-  width: 100%;
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+}
+.header .header-description .card {
+  color: white;
+  background-color: #24282c;
+  text-align: center;
+  border-radius: 0.5em;
+  box-shadow: 7px 10px 7px rgba(0, 0, 0, 0.3);
 }
 .header .header-description .header-description-card {
   width: 15em;
@@ -261,51 +252,23 @@ h6 {
   border-radius: 0.5em;
   box-shadow: 7px 10px 7px rgba(0, 0, 0, 0.3);
 }
-.header
-  .header-description
-  .header-description-card
-  .header-description-content-image {
-  width: 100%;
-  height: 70%;
-  display: grid;
-  place-items: center;
-}
-.header
-  .header-description
-  .header-description-card
-  .header-description-content-image
-  .header-description-image {
-  margin-top: 0.5em;
-  width: 10em;
-  height: 10em;
-  object-fit: cover;
-  border-radius: 50%;
-  /*border: 3px solid var(--border-image-round);*/
-}
-.header .header-description .header-description-card .header-description-meta {
+
+.header .header-description .card .card-body .header-description-meta {
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   display: grid;
   place-items: center;
 }
-.header
-  .header-description
-  .header-description-card
-  .header-description-meta
-  h6 {
+.header .header-description .card .card-body h6 {
   padding-top: 1em;
   color: var(--site-text-a-color);
   font-family: Arial, Helvetica, sans-serif;
 }
-.header
-  .header-description
-  .header-description-card
-  .header-description-meta
-  span {
+.header .header-description .card .card-body span {
   color: #fff;
   opacity: 0.5;
   font-family: "Times New Roman", Times, serif;
 }
-.icon-social {
+.header .header-description .card .card-body .icon-social {
   padding-top: 0.3em;
   width: 60%;
   display: flex;
@@ -342,139 +305,39 @@ h6 {
 /***********ABOUT*************/
 
 section.about {
-  height: 100vh;
+  height: 80vh;
   width: 100%;
   display: grid;
   place-items: center;
 }
-
-section.about .about-card {
-  width: 80%;
-  height: 80%;
+.card-img-top {
+  max-width: 100%;
+}
+section.about .card {
   background-color: #1c1d1f;
   box-shadow: 5px 10px 5px rgba(0, 0, 0, 0.3);
-  display: grid;
-  place-items: center;
 }
-section.about .about-card .about-content-card {
-  width: 90%;
-  height: 90%;
-  display: grid;
-  grid-template-columns: 40% 60%;
-}
-
-section.about .about-card .about-content-card .about-frame {
-  width: 100%;
-  height: 100%;
-}
-section.about .about-card .about-content-card .about-frame .image-profile {
-  height: 100%;
-  width: 90%;
-  object-fit: cover;
-}
-section.about .about-card .about-header {
-  padding: 0;
-}
-section.about .about-card .about-header h1 {
+section.about .card h1.card-title {
   color: #fff;
-  text-transform: lowercase;
 }
 
-section.about .about-card .about-header p {
-  padding: 0.3em 01em;
-  color: #8bbb11;
+section.about .card .text-muted {
+  color: #8bbb11 !important;
 }
-section.about .about-card .description {
-  padding-top: 0.5em;
-  height: 50%;
-}
-section.about .about-card .description span {
+section.about .card .card-text {
   font-family: Arial, Helvetica, sans-serif;
   color: whitesmoke;
 }
-section.about .about-card .skills {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  height: 34%;
-}
-section.about .about-card .skills h6 {
-  padding-top: 1em;
-  text-transform: uppercase;
-  color: #33bcb7;
-}
 
-section.about .about-card .skills h6::first-letter {
-  text-transform: uppercase;
-}
-section.about .about-card .skills .container {
-  width: 100%;
-  height: 100%;
-  display: grid;
-  place-items: center;
-}
-section.about .about-card .skills .container .row {
-  width: 70%;
-}
-section.about .about-card .skills .container .row .icon {
-  width: 3em;
-  height: 3em;
-}
-section.about .about-card .skills .container .row .icon-js {
-  border-radius: 50%;
-}
 @media screen and (max-width: 800px) {
   section.about {
-    min-height: 120vh;
-  }
-  section.about .about-card {
-    display: block;
-  }
-  section.about .about-card .about-content-card {
-    display: block;
-    text-align: center;
-    width: 100%;
-  }
-  section.about .about-card .about-content-card .about-frame {
-    max-width: 100%;
-    height: 50%;
-    display: grid !important;
-    place-items: center;
-  }
-  section.about .about-card .about-content-card .about-frame .image-profile {
-    display: block;
-    max-width: 50%;
-    max-height: 90%;
-    border-radius: 100%;
-    z-index: 1000;
-  }
-  section.about .about-card .skills .container .row {
-    padding-top: 1em;
-  }
-  section.about .about-card .description {
-    width: 93%;
-    padding-left: 0.3em;
+    min-height: 100vh;
   }
 }
 
 @media screen and (max-width: 450px) {
   section.about {
     min-height: 100vh;
-  }
-  section.about .about-card {
-    width: 90%;
-    height: 90%;
-  }
-  section.about .about-card .about-content-card {
-    max-height: 80%;
-  }
-  section.about .about-card .about-content-card .about-frame {
-    max-height: 45%;
-  }
-  section.about .about-card .about-content-card .about-frame .image-profile {
-    display: block;
-    max-width: 50%;
-    max-height: 70%;
-    border-radius: 100%;
-    z-index: 1000;
   }
 }
 
@@ -489,10 +352,47 @@ section.about .about-card .skills .container .row .icon-js {
   }
 }
 
+/************SKILS*******************/
+section.skill {
+  min-height: 40vh;
+}
+.skill h3 {
+  text-align: center;
+  padding-top: 1em;
+  text-transform: uppercase;
+  color: #33bcb7;
+}
+
+.skills .container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+skills .container .row {
+  width: 70%;
+}
+.icon {
+  width: 3em;
+  height: 3em;
+}
+section.skill {
+  height: 30vh;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.skill .container .row .icon-js {
+  border-radius: 50%;
+}
+@media screen and (max-width: 450px) {
+  /*section.skill {
+    min-height: 40vh;
+  }*/
+}
+
 /************WORK*************/
 .project {
   height: 90vh;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: #292e32;
 }
 @media screen and (min-width: 1200px) {
   .project {
@@ -679,6 +579,7 @@ figure figcaption img {
   height: 40vh;
   display: grid;
   place-items: center;
+  background: #1d2023;
 }
 
 .contact h3 {

@@ -54,7 +54,7 @@ function showSlides(n) {
 
 /***********MEDIA QUERY JS TO CHANGE THE IMAGE PROFILE*************/
 
-function changeImg(x) {
+/*function changeImg(x) {
   if (x.matches) {
     let img = document.getElementById("imageProfile");
     img.src = "./images/me/profile-icon.png";
@@ -63,6 +63,6 @@ function changeImg(x) {
     img.src = "./images/me/profile.jpg";
   }
 }
-var x = window.matchMedia("(max-width: 800px)");
-changeImg(x); // Call listener function at run time
-x.addListener(changeImg); // Attach listener function on state changes
+var x = window.matchMedia("(max-width: 800px)");*/
+//changeImg(x); // Call listener function at run time
+//x.addListener(changeImg); // Attach listener function on state changes
