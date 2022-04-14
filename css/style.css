@@ -312,6 +312,7 @@ section.about {
 }
 .card-img-top {
   max-width: 100%;
+  
 }
 section.about .card {
   background-color: #1c1d1f;
@@ -391,12 +392,12 @@ section.skill {
 
 /************WORK*************/
 .project {
-  height: 90vh;
+  height: auto;
   background-color: #292e32;
 }
 @media screen and (min-width: 1200px) {
   .project {
-    height: 70vh;
+    height: auto;
   }
 }
 section.project h3 {
@@ -409,7 +410,7 @@ section.project h3 {
 section.project .containerProj {
   max-width: 80vw;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-gap: 35px;
   margin: 0 auto;
   padding: 40px 0;
