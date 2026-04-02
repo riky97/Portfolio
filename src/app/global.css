@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@600;700&display=swap");
+
+:root {
+    --font-body: "Manrope", "Segoe UI", sans-serif;
+    --font-heading: "Space Grotesk", "Segoe UI", sans-serif;
+
+    --color-page: #f8f6f0;
+    --color-surface: #fffdf8;
+    --color-border: #e6decc;
+    --color-ink-900: #1d2b24;
+    --color-ink-700: #4a5f55;
+
+    --color-accent-100: #ffe7c2;
+    --color-accent-300: #ffc166;
+    --color-accent-500: #ffaf36;
+    --color-accent-700: #d37a00;
+    --color-accent-900: #8d4f00;
+
+    --shadow-soft: 0 12px 30px rgba(69, 56, 20, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    color: var(--color-ink-700);
+    background:
+        radial-gradient(circle at 16% -4%, rgba(255, 193, 102, 0.35), transparent 28%),
+        radial-gradient(circle at 88% 10%, rgba(211, 122, 0, 0.2), transparent 23%), var(--color-page);
+    min-height: 100vh;
+}
+
+#root {
+    min-height: 100vh;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+}

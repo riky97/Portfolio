@@ -1,0 +1,41 @@
+.timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+}
+
+.item {
+    border: 1px solid var(--color-border);
+    border-left: 0.45rem solid var(--color-accent-300);
+    border-radius: 0.9rem;
+    background: var(--color-surface);
+    box-shadow: var(--shadow-soft);
+    padding: 1rem 1.1rem;
+}
+
+.period {
+    margin: 0;
+    color: var(--color-accent-900);
+    font-weight: 700;
+    font-size: 0.88rem;
+}
+
+.item h3 {
+    margin: 0.4rem 0 0;
+    color: var(--color-ink-900);
+}
+
+.summary {
+    margin: 0.65rem 0;
+    color: var(--color-ink-700);
+}
+
+.highlights {
+    margin: 0;
+    padding-left: 1.2rem;
+    color: var(--color-ink-700);
+    display: grid;
+    gap: 0.4rem;
+}

@@ -1,0 +1,46 @@
+.heroBody {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.portrait {
+    width: min(100%, 26rem);
+    border-radius: 1rem;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-soft);
+    object-fit: cover;
+}
+
+.meta {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.meta span {
+    background: var(--color-accent-100);
+    border: 1px solid var(--color-accent-300);
+    border-radius: 999px;
+    padding: 0.4rem 0.75rem;
+    color: var(--color-ink-900);
+    font-weight: 600;
+}
+
+.cta {
+    display: inline-flex;
+    width: fit-content;
+    text-decoration: none;
+    color: var(--color-ink-900);
+    background: var(--color-accent-500);
+    border-radius: 999px;
+    padding: 0.72rem 1.1rem;
+    font-weight: 700;
+    box-shadow: var(--shadow-soft);
+    transition: transform 180ms ease;
+}
+
+.cta:hover {
+    transform: translateY(-2px);
+}

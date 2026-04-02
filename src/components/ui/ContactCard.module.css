@@ -1,0 +1,21 @@
+.card {
+    border: 1px solid var(--color-border);
+    border-radius: 0.9rem;
+    padding: 1rem;
+    background: var(--color-surface);
+    box-shadow: var(--shadow-soft);
+}
+
+.card p {
+    margin: 0;
+    color: var(--color-ink-700);
+}
+
+.card a {
+    display: inline-block;
+    margin-top: 0.35rem;
+    color: var(--color-ink-900);
+    text-decoration: none;
+    font-weight: 700;
+    word-break: break-word;
+}

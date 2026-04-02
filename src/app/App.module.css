@@ -1,0 +1,9 @@
+.main {
+    max-width: 70rem;
+    margin: 0 auto;
+}
+
+.loader {
+    padding: 1rem 1.25rem;
+    color: var(--color-ink-700);
+}
