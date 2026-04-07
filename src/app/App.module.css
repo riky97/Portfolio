@@ -1,9 +1,21 @@
 .main {
-    max-width: 70rem;
-    margin: 0 auto;
+    --sidebar-width: 15rem;
+    --content-max: 74rem;
+    width: min(var(--content-max), calc(100vw - var(--sidebar-width) - 2rem));
+    margin-left: calc(var(--sidebar-width) + max(1rem, (100vw - var(--sidebar-width) - var(--content-max)) / 2));
+    margin-right: max(1rem, (100vw - var(--sidebar-width) - var(--content-max)) / 2);
 }
 
 .loader {
     padding: 1rem 1.25rem;
     color: var(--color-ink-700);
+}
+
+@media (max-width: 56rem) {
+    .main {
+        width: auto;
+        margin-left: 0;
+        margin-right: 0;
+        padding-top: 4.9rem;
+    }
 }

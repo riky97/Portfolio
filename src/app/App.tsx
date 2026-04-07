@@ -29,7 +29,11 @@ export default function App() {
 
     return (
         <>
-            <Navigation items={memoizedNavigationItems} activeSection={activeSection} />
+            <Navigation
+                items={memoizedNavigationItems}
+                activeSection={activeSection}
+                profile={{ name: heroData.name, role: heroData.role, imageSrc: heroData.image.src }}
+            />
             <main className={styles.main}>
                 <HeroSection hero={heroData} />
                 <Suspense fallback={<SectionLoader />}>
