@@ -11,7 +11,17 @@ export function Navigation({ items, activeSection }: NavigationProps) {
     const handleItemClick = (sectionId: SectionId) => {
         const sectionElement = document.getElementById(sectionId);
 
-        sectionElement?.scrollIntoView({ behavior: "smooth", block: "start" });
+        if (sectionElement) {
+            // Calculate offset to account for sticky header (navigation height ~60px)
+            const headerOffset = 60;
+            const elementPosition = sectionElement.getBoundingClientRect().top + window.scrollY;
+            const offsetPosition = elementPosition - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth",
+            });
+        }
     };
 
     return (

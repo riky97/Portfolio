@@ -12,6 +12,15 @@ export function HeroSection({ hero }: HeroSectionProps) {
     return (
         <Section id="home" title={hero.name} subtitle={hero.summary}>
             <div className={styles.heroBody}>
+                <div className={styles.heroContent}>
+                    <p className={styles.meta}>
+                        <span>{hero.role}</span>
+                        <span>{hero.location}</span>
+                    </p>
+                    <a href="#projects" className={styles.cta}>
+                        {hero.ctaLabel}
+                    </a>
+                </div>
                 <img
                     className={styles.portrait}
                     src={hero.image.src}
@@ -21,13 +30,6 @@ export function HeroSection({ hero }: HeroSectionProps) {
                     loading="eager"
                     decoding="async"
                 />
-                <p className={styles.meta}>
-                    <span>{hero.role}</span>
-                    <span>{hero.location}</span>
-                </p>
-                <a href="#projects" className={styles.cta}>
-                    {hero.ctaLabel}
-                </a>
             </div>
         </Section>
     );

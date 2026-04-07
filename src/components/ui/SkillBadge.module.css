@@ -7,11 +7,36 @@
     gap: 0.2rem;
     background: var(--color-surface);
     box-shadow: var(--shadow-soft);
+    transition:
+        transform 250ms cubic-bezier(0.23, 1, 0.32, 1),
+        box-shadow 250ms cubic-bezier(0.23, 1, 0.32, 1),
+        border-color 250ms ease,
+        background-color 250ms ease;
+    cursor: default;
+}
+
+.badge:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(14, 165, 233, 0.2);
+    border-color: var(--color-accent-500);
+    background: var(--color-accent-100);
 }
 
 .badge span {
     color: var(--color-ink-900);
     font-weight: 700;
+}
+
+.titleRow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.icon {
+    color: var(--color-accent-500);
+    font-size: 1rem;
+    flex-shrink: 0;
 }
 
 .badge small {

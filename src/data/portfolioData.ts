@@ -10,42 +10,49 @@ export const navigationItems: NavigationItem[] = [
 
 export const heroData: HeroData = {
     name: "Riccardo Ingrasciotta",
-    role: "Frontend Engineer",
-    location: "Milan, Italy",
-    summary: "I build fast and accessible web interfaces with React and TypeScript, focusing on clean architecture and maintainable design systems.",
+    role: "Software Engineer",
+    location: "Abbiategrasso, Italy",
+    summary: `Born on 19/11/1997 and currently based in Abbiategrasso, Italy, I’m a Software Developer with three years of experience focused on building modern
+                web applications and intuitive user interfaces. My main expertise lies in React, where I design and develop reliable, scalable, and user-centric
+                front-end solutions.
+                Alongside front-end development, I have hands-on experience with backend systems in .NET, Microfrontend architectures, and SharePoint inte-
+                grations. I also work with Python and Kubernetes, applying these technologies to improve automation, scalability, and overall system robustness.
+                Driven by curiosity and a proactive mindset, I am constantly exploring new technologies, refining engineering practices, and expanding my tech-
+                nical skill set. I approach problem-solving with clarity and attention to detail, always aiming to deliver high-quality solutions while collaborating
+                effectively within cross-functional teams.`,
     ctaLabel: "Explore My Work",
     image: {
-        src: "/images/hero/hero-640.webp",
-        srcSet: "/images/hero/hero-640.webp 640w, /images/hero/hero-1280.webp 1280w",
-        sizes: "(max-width: 768px) 80vw, 420px",
+        src: "/images/hero/riccardo-portrait-1024.webp",
+        srcSet: "/images/hero/riccardo-portrait-512.webp 512w, /images/hero/riccardo-portrait-1024.webp 1024w, /images/hero/riccardo-portrait-1600.webp 1600w",
+        sizes: "(max-width: 768px) 55vw, 224px",
     },
 };
 
 export const projects: ProjectItem[] = [
-    {
-        title: "My Macros",
-        description: "Marketing website for a nutrition brand with a strong focus on responsive layouts and clear conversion flow.",
-        stack: ["WordPress", "CSS", "JavaScript"],
-        href: "https://www.mymacros.it/",
-        imageAlt: "Landing page preview for My Macros project",
-        image: {
-            src: "/images/projects/macros-480.webp",
-            srcSet: "/images/projects/macros-480.webp 480w, /images/projects/macros-960.webp 960w",
-            sizes: "(max-width: 900px) 100vw, 46vw",
-        },
-    },
-    {
-        title: "Web Counter App",
-        description: "Interactive JavaScript project that tracks user interactions and demonstrates DOM updates with a lightweight architecture.",
-        stack: ["HTML", "CSS", "JavaScript"],
-        href: "https://mywebcounterapp.netlify.app/",
-        imageAlt: "Counter application interface preview",
-        image: {
-            src: "/images/projects/counter-480.webp",
-            srcSet: "/images/projects/counter-480.webp 480w, /images/projects/counter-960.webp 960w",
-            sizes: "(max-width: 900px) 100vw, 46vw",
-        },
-    },
+    // {
+    //     title: "My Macros",
+    //     description: "Marketing website for a nutrition brand with a strong focus on responsive layouts and clear conversion flow.",
+    //     stack: ["WordPress", "CSS", "JavaScript"],
+    //     href: "https://www.mymacros.it/",
+    //     imageAlt: "Landing page preview for My Macros project",
+    //     image: {
+    //         src: "/images/projects/macros-480.webp",
+    //         srcSet: "/images/projects/macros-480.webp 480w, /images/projects/macros-960.webp 960w",
+    //         sizes: "(max-width: 900px) 100vw, 46vw",
+    //     },
+    // },
+    // {
+    //     title: "Web Counter App",
+    //     description: "Interactive JavaScript project that tracks user interactions and demonstrates DOM updates with a lightweight architecture.",
+    //     stack: ["HTML", "CSS", "JavaScript"],
+    //     href: "https://mywebcounterapp.netlify.app/",
+    //     imageAlt: "Counter application interface preview",
+    //     image: {
+    //         src: "/images/projects/counter-480.webp",
+    //         srcSet: "/images/projects/counter-480.webp 480w, /images/projects/counter-960.webp 960w",
+    //         sizes: "(max-width: 900px) 100vw, 46vw",
+    //     },
+    // },
     {
         title: "Online Book App",
         description: "A searchable catalog with client-side filtering and modular components, built to practice advanced JavaScript patterns.",
@@ -74,25 +81,38 @@ export const projects: ProjectItem[] = [
 
 export const experienceItems: ExperienceItem[] = [
     {
-        role: "Frontend Engineer",
-        company: "Freelance / Client Projects",
-        period: "2023 - Present",
-        summary: "Design and implementation of responsive interfaces for marketing and product websites.",
+        role: "Software Engineer",
+        company: "Capgemini – European Space Agency (ESA)",
+        period: "Apr. 2023 – Present",
+        summary:
+            "Developing and maintaining the Performance Monitoring System for space data ecosystems, combining commercial software and custom solutions.",
         highlights: [
-            "Built component-driven UIs with React and TypeScript",
-            "Improved Lighthouse performance and accessibility scores",
-            "Delivered reusable styling systems with maintainable CSS architecture",
+            "Developed and maintained Grafana dashboards for key performance indicators across multiple timeframes",
+            "Implemented data storage pipelines in OpenSearch for fast and reliable data access",
+            "Maintained the Invalidation Tool (React-based frontend) with new features and improved usability",
+            "Participated in Python/ETL knowledge transfer and KPI computation optimization",
         ],
     },
     {
-        role: "Web Developer",
-        company: "Independent Learning Projects",
-        period: "2021 - 2023",
-        summary: "Portfolio and educational apps focused on JavaScript fundamentals and progressive frontend patterns.",
+        role: "Software Engineer",
+        company: "Capgemini – Poste Italiane",
+        period: "Apr. 2023 – Present",
+        summary: "Developing responsive SharePoint web parts and improving UI/UX for internal and customer-facing applications.",
         highlights: [
-            "Developed multiple projects deployed on Netlify",
-            "Practiced API integration and state management patterns",
-            "Migrated projects from vanilla JavaScript to React ecosystems",
+            "Developed new web parts for SharePoint with intuitive, responsive user interfaces",
+            "Collaborated with product and design teams on UI/UX improvements",
+            "Implemented customer feedback and adjusted interfaces for better usability",
+        ],
+    },
+    {
+        role: "Software Developer",
+        company: "Craon Italy",
+        period: "May 2022 – Mar. 2023",
+        summary: "Built front-end banking solutions using microfrontend architectures in cross-functional teams.",
+        highlights: [
+            "Developed scalable front-end applications with microfrontend architecture",
+            "Collaborated with cross-functional teams on deployment efficiency",
+            "Participated in CI/CD pipelines and DevOps integration (Jenkins, Bitbucket)",
         ],
     },
 ];
@@ -100,28 +120,32 @@ export const experienceItems: ExperienceItem[] = [
 export const skills: SkillItem[] = [
     { name: "React", level: "Advanced" },
     { name: "TypeScript", level: "Advanced" },
-    { name: "JavaScript", level: "Advanced" },
-    { name: "HTML5", level: "Advanced" },
-    { name: "CSS3", level: "Advanced" },
-    { name: "Node.js", level: "Intermediate" },
-    { name: "MySQL", level: "Intermediate" },
-    { name: "Accessibility", level: "Intermediate" },
+    { name: "JavaScript (ES6+)", level: "Advanced" },
+    { name: "HTML5 & CSS3", level: "Advanced" },
+    { name: "SharePoint", level: "Advanced" },
+    { name: ".NET", level: "Intermediate" },
+    { name: "Python", level: "Intermediate" },
+    { name: "Kubernetes & Docker", level: "Intermediate" },
+    { name: "Grafana & OpenSearch", level: "Intermediate" },
+    { name: "React Native", level: "Intermediate" },
+    { name: "Microfrontend Architectures", level: "Intermediate" },
+    { name: "CI/CD Pipelines", level: "Intermediate" },
 ];
 
 export const contacts: ContactItem[] = [
     {
         label: "Email",
-        value: "riccardo.ingrasciotta.dev@gmail.com",
-        href: "mailto:riccardo.ingrasciotta.dev@gmail.com",
+        value: "riccardoingrasciotta@gmail.com",
+        href: "mailto:riccardoingrasciotta@gmail.com",
+    },
+    {
+        label: "Phone",
+        value: "+39 331 3386770",
+        href: "tel:+393313386770",
     },
     {
         label: "GitHub",
         value: "github.com/riky97",
         href: "https://github.com/riky97/",
-    },
-    {
-        label: "Instagram",
-        value: "@riky_ffg",
-        href: "https://www.instagram.com/riky_ffg/",
     },
 ];

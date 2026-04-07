@@ -4,7 +4,7 @@ import type { SectionId } from "../types/portfolio";
 
 const OBSERVER_OPTIONS: IntersectionObserverInit = {
     root: null,
-    rootMargin: "-40% 0px -45% 0px",
+    rootMargin: "0px 0px -50% 0px",
     threshold: 0.01,
 };
 

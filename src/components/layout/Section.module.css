@@ -24,7 +24,7 @@
 
 .subtitle {
     margin: 0.8rem 0 0;
-    max-width: 60ch;
+    /* max-width: 60ch; */
     color: var(--color-ink-700);
 }
 
