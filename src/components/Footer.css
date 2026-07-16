@@ -1,0 +1,24 @@
+.footer {
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-3) 0;
+}
+
+.footer__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+}
+
+.footer__row a {
+  color: var(--color-text-secondary);
+  transition: color var(--transition-base);
+}
+
+.footer__row a:hover {
+  color: var(--color-signal);
+}

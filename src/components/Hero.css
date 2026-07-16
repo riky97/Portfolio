@@ -1,0 +1,124 @@
+.hero {
+  padding-top: calc(var(--space-7) + 72px);
+  padding-bottom: var(--space-6);
+  overflow: hidden;
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.hero__copy [data-hero-line] {
+  opacity: 0;
+}
+
+.hero__name {
+  font-size: var(--fs-hero);
+  font-weight: 700;
+  margin-bottom: var(--space-2);
+}
+
+.hero__role {
+  font-size: var(--fs-h3);
+  color: var(--color-text-primary);
+  font-family: var(--font-display);
+  font-weight: 500;
+  margin-bottom: var(--space-3);
+}
+
+.hero__pitch {
+  color: var(--color-text-secondary);
+  max-width: 46ch;
+  margin-bottom: var(--space-4);
+}
+
+.hero__cta {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.5rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: var(--fs-small);
+  transition: transform var(--transition-base), background var(--transition-base), border-color var(--transition-base);
+  border: 1px solid transparent;
+}
+
+.button--primary {
+  background: var(--color-action);
+  color: var(--color-ink);
+}
+
+.button--primary:hover {
+  background: var(--color-action-hover);
+  transform: translateY(-2px);
+}
+
+.button--ghost {
+  border-color: var(--color-border);
+  color: var(--color-text-primary);
+}
+
+.button--ghost:hover {
+  border-color: var(--color-signal);
+  color: var(--color-signal);
+  transform: translateY(-2px);
+}
+
+.hero__signal {
+  display: flex;
+  justify-content: center;
+}
+
+.hero__signal-svg {
+  width: 100%;
+  max-width: 360px;
+}
+
+.hero__ring {
+  fill: none;
+  stroke: var(--color-signal);
+  stroke-width: 1;
+  opacity: 0.55;
+}
+
+.hero__ring--dim {
+  opacity: 0.3;
+}
+
+.hero__ring--dimmer {
+  opacity: 0.15;
+}
+
+.hero__wave {
+  fill: none;
+  stroke: var(--color-signal);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hero__dot {
+  fill: var(--color-action);
+}
+
+@media (max-width: 900px) {
+  .hero__grid {
+    grid-template-columns: 1fr;
+  }
+  .hero__signal {
+    order: -1;
+  }
+  .hero__signal-svg {
+    max-width: 260px;
+  }
+}
