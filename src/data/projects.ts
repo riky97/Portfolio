@@ -21,4 +21,12 @@ export const projects: Project[] = [
         tags: ["React", "TypeScript"],
         liveUrl: "https://my-anime-list.netlify.app/",
     },
+    {
+        title: "Vegetarian Recipe",
+        image: "/projects/vegetarian-recipe.svg",
+        description:
+            "A browsable collection of 50 vegetarian recipes with search by title or ingredient, paginated results, and detail pages sourced from the Spoonacular API. Built as a React single-page application.",
+        tags: ["React", "TypeScript"],
+        liveUrl: "https://my-vegetarian-recipe-app.netlify.app/",
+    },
 ];
