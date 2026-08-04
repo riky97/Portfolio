@@ -23,7 +23,7 @@ export const projects: Project[] = [
     },
     {
         title: "Vegetarian Recipe",
-        image: "/projects/vegetarian-recipe.svg",
+        image: "/projects/vegetarian-recipe.png",
         description:
             "A browsable collection of 50 vegetarian recipes with search by title or ingredient, paginated results, and detail pages sourced from the Spoonacular API. Built as a React single-page application.",
         tags: ["React", "TypeScript"],
