@@ -11,8 +11,12 @@
   gap: var(--space-5);
 }
 
-.hero__copy [data-hero-line] {
-  opacity: 0;
+/* Start hidden only when the entrance animation in Hero.tsx will run; with
+   reduced motion it returns early, so the copy has to stay visible. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero__copy [data-hero-line] {
+    opacity: 0;
+  }
 }
 
 .hero__name {
