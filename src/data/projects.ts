@@ -17,6 +17,18 @@ export const projects: Project[] = [
         liveUrl: "https://www.bdiscom.it/",
     },
     {
+        title: "Loot Box 3D",
+        description: {
+            en: "Website for Loot Box 3D, a small Italian workshop that turns anime, games, films and fantasy worlds into hand-finished 3D prints. Gallery of pieces, product categories, how-it-works flow and contact options.",
+            it: "Sito web di Loot Box 3D, piccolo laboratorio italiano che trasforma anime, videogiochi, film e mondi fantasy in stampe 3D rifinite a mano. Galleria dei pezzi, categorie, percorso dall'idea alla consegna e contatti.",
+        },
+        image: "/projects/lootbox3d.png",
+        tags: ["Website", "3D Printing"],
+        liveUrl: "https://lootbox3d.it/",
+    },
+    // Temporarily hidden from the portfolio (restore by removing the comment markers).
+    /*
+    {
         title: "Anime List",
         image: "/projects/anime.png",
         description: {
@@ -36,4 +48,5 @@ export const projects: Project[] = [
         tags: ["React", "TypeScript"],
         liveUrl: "https://my-vegetarian-recipe-app.netlify.app/",
     },
+    */
 ];
