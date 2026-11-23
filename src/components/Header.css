@@ -10,7 +10,7 @@
 }
 
 .header--scrolled {
-  background: rgba(11, 18, 32, 0.85);
+  background: color-mix(in srgb, var(--color-ink) 85%, transparent);
   backdrop-filter: blur(10px);
   border-bottom-color: var(--color-border);
 }
@@ -29,6 +29,7 @@
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 1.05rem;
+  white-space: nowrap;
   color: var(--color-text-primary);
 }
 
@@ -38,6 +39,12 @@
   border-radius: 50%;
   background: var(--color-signal);
   box-shadow: 0 0 8px 2px var(--color-signal-dim);
+}
+
+.header__controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
 }
 
 .header__nav--desktop {
@@ -50,6 +57,7 @@
 }
 
 .header__nav--desktop a {
+  white-space: nowrap;
   color: var(--color-text-secondary);
   transition: color var(--transition-base);
 }
@@ -61,10 +69,14 @@
 .header__menu-toggle {
   display: none;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 5px;
+  width: 2.75rem;
+  height: 2.75rem;
   background: none;
   border: none;
-  padding: var(--space-1);
+  padding: 0;
 }
 
 .header__menu-toggle span {
@@ -73,27 +85,52 @@
   background: var(--color-text-primary);
 }
 
+/* Mobile menu: the links plus the language and theme controls, which do not
+   fit next to the name in the header row at phone widths. */
+.header__panel {
+  padding: var(--space-1) var(--space-3) var(--space-3);
+  background: var(--color-ink);
+  border-bottom: 1px solid var(--color-border);
+}
+
 .header__nav--mobile {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
-  padding: var(--space-2) var(--space-3) var(--space-3);
-  background: rgba(11, 18, 32, 0.97);
-  border-bottom: 1px solid var(--color-border);
   font-family: var(--font-mono);
   text-transform: uppercase;
   font-size: var(--fs-mono);
 }
 
 .header__nav--mobile a {
+  display: flex;
+  align-items: center;
+  min-height: 2.75rem;
   color: var(--color-text-secondary);
 }
 
-@media (max-width: 720px) {
-  .header__nav--desktop {
+.header__panel-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-1);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--color-border);
+}
+
+/* The desktop row (name, five links, controls) needs about 860px in Italian. */
+@media (max-width: 900px) {
+  .header__nav--desktop,
+  .header__controls {
     display: none;
   }
   .header__menu-toggle {
     display: flex;
+  }
+}
+
+/* A menu left open while the window grows must not linger. */
+@media (min-width: 901px) {
+  .header__panel {
+    display: none;
   }
 }

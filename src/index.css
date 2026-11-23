@@ -5,7 +5,7 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-/* The site is dark-only: <html class="dark"> switches on the `dark:` variants. */
+/* Dark is <html class="dark"> (the default); light is the absence of the class. */
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -39,7 +39,7 @@
 }
 
 /* shadcn theme -> our design tokens. src/styles/tokens.css stays the single
-   source of truth for colors; change a color there, not here. */
+   source of truth for colors, in both themes; change a color there, not here. */
 :root {
   --background: var(--color-ink);
   --foreground: var(--color-text-primary);
@@ -49,7 +49,7 @@
   --popover-foreground: var(--color-text-primary);
   /* Amber is reserved for calls to action, which is what `primary` is used for. */
   --primary: var(--color-action);
-  --primary-foreground: var(--color-ink);
+  --primary-foreground: var(--color-on-action);
   --secondary: var(--color-surface-raised);
   --secondary-foreground: var(--color-text-primary);
   --muted: var(--color-surface-raised);

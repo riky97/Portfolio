@@ -5,7 +5,7 @@ import { ProjectCard } from "./ProjectCard";
 
 const project: Project = {
   title: "Demo App",
-  description: "A demo project.",
+  description: { en: "A demo project.", it: "Un progetto di prova." },
   image: "/projects/demo.png",
   tags: ["React", "TypeScript"],
   liveUrl: "https://example.com/",

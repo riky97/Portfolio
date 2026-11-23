@@ -1,18 +1,28 @@
 :root {
-  /* Color — deep instrument-panel navy, not pure black; a signal/telemetry teal
-     as the primary accent (nods to the Grafana/OpenSearch monitoring work),
-     amber reserved only for calls to action so it reads as "action", not decoration. */
-  --color-ink: #0b1220;
-  --color-surface: #121b2e;
-  --color-surface-raised: #182742;
-  --color-border: #223049;
-  --color-text-primary: #e8edf5;
-  --color-text-secondary: #8b97ac;
-  --color-text-muted: #7d88a8;
-  --color-signal: #4fd1c5;
-  --color-signal-dim: #2f6b66;
+  /* Color — an instrument panel in two lights. Dark is the default theme: deep
+     navy ink, not pure black. A signal/telemetry teal as the accent (nods to the
+     Grafana/OpenSearch monitoring work); amber reserved for calls to action.
+     This block is the light theme; `.dark` below overrides every color.
+     Names describe the role, not the value: `ink` is the page background.
+
+     Amber is bright enough to carry dark text but too pale to be text itself on
+     a light page, so links use --color-action-text. */
+  color-scheme: light;
+  --color-ink: #f6f8fc;
+  --color-surface: #ffffff;
+  --color-surface-raised: #eef2f8;
+  --color-border: #d3dcea;
+  --color-text-primary: #0f1b2e;
+  --color-text-secondary: #4a5872;
+  --color-text-muted: #5c6a85;
+  --color-signal: #0f766e;
+  --color-signal-dim: #b4e3dd;
+  --color-on-signal: #ffffff;
   --color-action: #f5a623;
   --color-action-hover: #ffb84d;
+  --color-action-text: #a35a00;
+  --color-action-text-hover: #7c4500;
+  --color-on-action: #0b1220;
 
   /* Typography */
   --font-display: "Space Grotesk", "Segoe UI", sans-serif;
@@ -39,6 +49,27 @@
   --radius-md: 10px;
   --max-width: 1120px;
 
-  --shadow-card: 0 20px 40px -20px rgba(0, 0, 0, 0.55);
+  --shadow-card: 0 20px 40px -24px rgba(15, 27, 46, 0.3);
   --transition-base: 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dark {
+  color-scheme: dark;
+  --color-ink: #0b1220;
+  --color-surface: #121b2e;
+  --color-surface-raised: #182742;
+  --color-border: #223049;
+  --color-text-primary: #e8edf5;
+  --color-text-secondary: #8b97ac;
+  --color-text-muted: #7d88a8;
+  --color-signal: #4fd1c5;
+  --color-signal-dim: #2f6b66;
+  --color-on-signal: #0b1220;
+  --color-action: #f5a623;
+  --color-action-hover: #ffb84d;
+  --color-action-text: #f5a623;
+  --color-action-text-hover: #ffb84d;
+  --color-on-action: #0b1220;
+
+  --shadow-card: 0 20px 40px -20px rgba(0, 0, 0, 0.55);
 }

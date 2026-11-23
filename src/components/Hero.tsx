@@ -1,10 +1,12 @@
 import { useEffect, useRef } from "react";
 import { animate, stagger } from "animejs";
 import { Button } from "@/components/ui/button";
+import { useLocale } from "@/i18n/locale-context";
 import { contact } from "../data/cv";
 import "./Hero.css";
 
 export function Hero() {
+  const { hero } = useLocale().messages;
   const rootRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -49,27 +51,25 @@ export function Hero() {
       <div className="site-container hero__grid">
         <div className="hero__copy">
           <p className="eyebrow" data-hero-line>
-            status: available for opportunities
+            {hero.status}
           </p>
           <h1 className="hero__name" data-hero-line>
             {contact.name}
           </h1>
           <p className="hero__role" data-hero-line>
-            {contact.role} — building reliable, data-driven front ends.
+            {hero.tagline}
           </p>
           <p className="hero__pitch" data-hero-line>
-            Three years designing React interfaces and monitoring systems for
-            large-scale platforms, from ESA data pipelines to banking
-            microfrontends.
+            {hero.pitch}
           </p>
           <div className="hero__cta" data-hero-line>
             <Button asChild size="lg">
               <a href="/cv.pdf" download>
-                Download CV
+                {hero.downloadCv}
               </a>
             </Button>
             <Button asChild size="lg" variant="outline">
-              <a href="#contact">Get in touch</a>
+              <a href="#contact">{hero.getInTouch}</a>
             </Button>
           </div>
         </div>

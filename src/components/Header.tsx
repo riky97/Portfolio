@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
+import { useLocale } from "@/i18n/locale-context";
 import { contact } from "../data/cv";
+import { LanguageSwitch } from "./LanguageSwitch";
+import { ThemeToggle } from "./ThemeToggle";
 import "./Header.css";
 
-const links = [
-  { href: "#about", label: "About" },
-  { href: "#skills", label: "Skills" },
-  { href: "#experience", label: "Experience" },
-  { href: "#projects", label: "Projects" },
-  { href: "#contact", label: "Contact" },
-];
+const sections = ["about", "skills", "experience", "projects", "contact"] as const;
 
 export function Header() {
+  const { messages } = useLocale();
+  const { nav, primaryNav, menuToggle } = messages.header;
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -28,19 +27,25 @@ export function Header() {
           {contact.name}
         </a>
 
-        <nav className="header__nav header__nav--desktop" aria-label="Primary">
-          {links.map((link) => (
-            <a key={link.href} href={link.href}>
-              {link.label}
+        <nav className="header__nav header__nav--desktop" aria-label={primaryNav}>
+          {sections.map((id) => (
+            <a key={id} href={`#${id}`}>
+              {nav[id]}
             </a>
           ))}
         </nav>
+
+        <div className="header__controls">
+          <LanguageSwitch />
+          <ThemeToggle />
+        </div>
 
         <button
           type="button"
           className="header__menu-toggle"
           aria-expanded={open}
-          aria-label="Toggle navigation menu"
+          aria-controls="mobile-menu"
+          aria-label={menuToggle}
           onClick={() => setOpen((v) => !v)}
         >
           <span />
@@ -50,13 +55,19 @@ export function Header() {
       </div>
 
       {open && (
-        <nav className="header__nav header__nav--mobile" aria-label="Primary">
-          {links.map((link) => (
-            <a key={link.href} href={link.href} onClick={() => setOpen(false)}>
-              {link.label}
-            </a>
-          ))}
-        </nav>
+        <div className="header__panel" id="mobile-menu">
+          <nav className="header__nav--mobile" aria-label={primaryNav}>
+            {sections.map((id) => (
+              <a key={id} href={`#${id}`} onClick={() => setOpen(false)}>
+                {nav[id]}
+              </a>
+            ))}
+          </nav>
+          <div className="header__panel-controls">
+            <LanguageSwitch />
+            <ThemeToggle />
+          </div>
+        </div>
       )}
     </header>
   );

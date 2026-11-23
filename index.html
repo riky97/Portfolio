@@ -5,6 +5,16 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Riccardo Ingrasciotta — Software Engineer specialized in React, front-end architecture and data monitoring systems." />
+    <script>
+      // Apply the saved preferences before the first paint, so the page never
+      // flashes the wrong theme or language. Dark is the default; only an explicit
+      // "light" choice removes the class.
+      try {
+        var root = document.documentElement;
+        if (localStorage.getItem("theme") === "light") root.classList.remove("dark");
+        if (localStorage.getItem("locale") === "it") root.lang = "it";
+      } catch (e) {}
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

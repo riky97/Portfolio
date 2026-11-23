@@ -2,6 +2,7 @@
 import { existsSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
+import { locales } from "@/i18n/types";
 import { projects } from "./projects";
 
 // Vitest runs from the project root, so public/ is resolved from there.
@@ -14,8 +15,10 @@ describe("projects data", () => {
 
   it.each(projects.map((p) => [p.title, p] as const))("%s is complete", (_title, project) => {
     expect(project.title.trim()).not.toBe("");
-    expect(project.description.trim()).not.toBe("");
     expect(project.tags.length).toBeGreaterThan(0);
+    for (const locale of locales) {
+      expect(project.description[locale].trim(), `description.${locale}`).not.toBe("");
+    }
   });
 
   it.each(projects.map((p) => [p.title, p.image] as const))(
