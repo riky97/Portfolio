@@ -7,7 +7,7 @@ export function Education() {
 
   return (
     <section id="education" className="section education">
-      <div className="container">
+      <div className="site-container">
         <p className="eyebrow">Education</p>
         <h2 className="section-heading">Background</h2>
 

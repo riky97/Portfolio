@@ -7,7 +7,7 @@ export function Experience() {
 
   return (
     <section id="experience" className="section experience">
-      <div className="container">
+      <div className="site-container">
         <p className="eyebrow">Experience</p>
         <h2 className="section-heading">Where I've worked</h2>
 

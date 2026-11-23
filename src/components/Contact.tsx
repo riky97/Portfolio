@@ -7,7 +7,7 @@ export function Contact() {
 
   return (
     <section id="contact" className="section contact">
-      <div className="container contact__inner" ref={ref}>
+      <div className="site-container contact__inner" ref={ref}>
         <div>
           <p className="eyebrow">Contact</p>
           <h2 className="section-heading">Let's build something reliable</h2>

@@ -1,1 +1,78 @@
-@import "./styles/global.css";
+@import "tailwindcss";
+/* Our own base styles join Tailwind's `base` layer, so utility classes (used by
+   shadcn components) can override them instead of losing to unlayered CSS. */
+@import "./styles/global.css" layer(base);
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/* The site is dark-only: <html class="dark"> switches on the `dark:` variants. */
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-display);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* shadcn theme -> our design tokens. src/styles/tokens.css stays the single
+   source of truth for colors; change a color there, not here. */
+:root {
+  --background: var(--color-ink);
+  --foreground: var(--color-text-primary);
+  --card: var(--color-surface);
+  --card-foreground: var(--color-text-primary);
+  --popover: var(--color-surface-raised);
+  --popover-foreground: var(--color-text-primary);
+  /* Amber is reserved for calls to action, which is what `primary` is used for. */
+  --primary: var(--color-action);
+  --primary-foreground: var(--color-ink);
+  --secondary: var(--color-surface-raised);
+  --secondary-foreground: var(--color-text-primary);
+  --muted: var(--color-surface-raised);
+  --muted-foreground: var(--color-text-secondary);
+  --accent: var(--color-surface-raised);
+  --accent-foreground: var(--color-text-primary);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: var(--color-border);
+  --input: var(--color-border);
+  --ring: var(--color-signal);
+  /* Same value as --radius-md in tokens.css (10px). A literal, because the
+     @theme block above defines --radius-md in terms of --radius. */
+  --radius: 0.625rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}

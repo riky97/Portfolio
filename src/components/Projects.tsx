@@ -8,7 +8,7 @@ export function Projects() {
 
   return (
     <section id="projects" className="section projects">
-      <div className="container">
+      <div className="site-container">
         <p className="eyebrow">Projects</p>
         <h2 className="section-heading">Selected work</h2>
 

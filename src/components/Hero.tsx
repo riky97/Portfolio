@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { animate, stagger } from "animejs";
+import { Button } from "@/components/ui/button";
 import { contact } from "../data/cv";
 import "./Hero.css";
 
@@ -45,7 +46,7 @@ export function Hero() {
 
   return (
     <section id="top" className="hero" ref={rootRef}>
-      <div className="container hero__grid">
+      <div className="site-container hero__grid">
         <div className="hero__copy">
           <p className="eyebrow" data-hero-line>
             status: available for opportunities
@@ -62,12 +63,14 @@ export function Hero() {
             microfrontends.
           </p>
           <div className="hero__cta" data-hero-line>
-            <a className="button button--primary" href="/cv.pdf" download>
-              Download CV
-            </a>
-            <a className="button button--ghost" href="#contact">
-              Get in touch
-            </a>
+            <Button asChild size="lg">
+              <a href="/cv.pdf" download>
+                Download CV
+              </a>
+            </Button>
+            <Button asChild size="lg" variant="outline">
+              <a href="#contact">Get in touch</a>
+            </Button>
           </div>
         </div>
 

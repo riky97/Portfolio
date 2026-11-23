@@ -41,39 +41,6 @@
   flex-wrap: wrap;
 }
 
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.85rem 1.5rem;
-  border-radius: var(--radius-sm);
-  font-weight: 600;
-  font-size: var(--fs-small);
-  transition: transform var(--transition-base), background var(--transition-base), border-color var(--transition-base);
-  border: 1px solid transparent;
-}
-
-.button--primary {
-  background: var(--color-action);
-  color: var(--color-ink);
-}
-
-.button--primary:hover {
-  background: var(--color-action-hover);
-  transform: translateY(-2px);
-}
-
-.button--ghost {
-  border-color: var(--color-border);
-  color: var(--color-text-primary);
-}
-
-.button--ghost:hover {
-  border-color: var(--color-signal);
-  color: var(--color-signal);
-  transform: translateY(-2px);
-}
-
 .hero__signal {
   display: flex;
   justify-content: center;

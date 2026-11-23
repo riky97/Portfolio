@@ -7,7 +7,7 @@ export function About() {
 
   return (
     <section id="about" className="section about">
-      <div className="container about__grid" ref={ref}>
+      <div className="site-container about__grid" ref={ref}>
         <div>
           <p className="eyebrow">About</p>
           <h2 className="section-heading">A front end built for reliability</h2>

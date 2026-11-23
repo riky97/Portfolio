@@ -22,7 +22,7 @@ export function Header() {
 
   return (
     <header className={`header ${scrolled ? "header--scrolled" : ""}`}>
-      <div className="container header__row">
+      <div className="site-container header__row">
         <a href="#top" className="header__brand">
           <span className="header__brand-dot" aria-hidden="true" />
           {contact.name}
