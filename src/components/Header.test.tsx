@@ -1,7 +1,15 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { act, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { en } from "@/i18n/en";
 import { Header } from "./Header";
+
+const { openMenu, closeMenu, menuTitle } = en.header;
+
+function openSidebar() {
+  render(<Header />);
+  fireEvent.click(screen.getByRole("button", { name: openMenu }));
+  return screen.getByRole("dialog", { name: menuTitle });
+}
 
 describe("Header", () => {
   it("shows the desktop navigation with a link per section", () => {
@@ -13,45 +21,76 @@ describe("Header", () => {
     expect(screen.getByRole("link", { name: "Contact" })).toHaveAttribute("href", "#contact");
   });
 
-  it("opens and closes the mobile menu with the toggle button", () => {
+  it("keeps the sidebar closed until the menu button is pressed", () => {
     render(<Header />);
 
-    const toggle = screen.getByRole("button", { name: "Toggle navigation menu" });
+    const toggle = screen.getByRole("button", { name: openMenu });
     expect(toggle).toHaveAttribute("aria-expanded", "false");
-    expect(screen.getAllByRole("navigation", { name: "Primary" })).toHaveLength(1);
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+  });
 
-    fireEvent.click(toggle);
+  it("opens a sidebar with the links, labelled and wired to the menu button", () => {
+    const sidebar = openSidebar();
+
+    expect(sidebar).toHaveAttribute("data-side", "right");
+    const nav = within(sidebar).getByRole("navigation", { name: "Primary" });
+    expect(within(nav).getAllByRole("link")).toHaveLength(5);
+    expect(within(nav).getByRole("link", { name: "Projects" })).toHaveAttribute("href", "#projects");
+
+    // The page behind is hidden from assistive technology while the sidebar is open.
+    const toggle = screen.getByRole("button", { name: openMenu, hidden: true });
     expect(toggle).toHaveAttribute("aria-expanded", "true");
-    expect(screen.getAllByRole("navigation", { name: "Primary" })).toHaveLength(2);
-
-    fireEvent.click(toggle);
-    expect(toggle).toHaveAttribute("aria-expanded", "false");
-    expect(screen.getAllByRole("navigation", { name: "Primary" })).toHaveLength(1);
+    expect(toggle).toHaveAttribute("aria-controls", sidebar.id);
   });
 
-  it("points the menu button at the menu it opens", () => {
-    render(<Header />);
+  it.each([
+    ["the close button", () => fireEvent.click(screen.getByRole("button", { name: closeMenu }))],
+    ["Escape", () => fireEvent.keyDown(screen.getByRole("dialog"), { key: "Escape" })],
+    ["choosing a link", () => fireEvent.click(screen.getByRole("link", { name: "Skills" }))],
+  ])("closes the sidebar with %s", async (_how, close) => {
+    openSidebar();
 
-    const toggle = screen.getByRole("button", { name: "Toggle navigation menu" });
-    fireEvent.click(toggle);
+    close();
 
-    const menuId = toggle.getAttribute("aria-controls");
-    expect(menuId).toBeTruthy();
-    expect(document.getElementById(menuId!)).toBeInTheDocument();
+    await waitFor(() => expect(screen.queryByRole("dialog")).not.toBeInTheDocument());
+    expect(screen.getByRole("button", { name: openMenu })).toHaveAttribute("aria-expanded", "false");
   });
 
-  it("puts the language and theme controls in the mobile menu too, in step with the header", () => {
+  it("puts the language and theme controls in the sidebar, in step with the header", () => {
     document.documentElement.classList.add("dark");
-    render(<Header />);
-    expect(screen.getAllByRole("button", { name: "EN" })).toHaveLength(1);
+    const sidebar = openSidebar();
 
-    fireEvent.click(screen.getByRole("button", { name: "Toggle navigation menu" }));
-    expect(screen.getAllByRole("button", { name: "EN" })).toHaveLength(2);
-    const themeToggles = screen.getAllByRole("button", { name: en.header.theme.toLight });
-    expect(themeToggles).toHaveLength(2);
+    expect(within(sidebar).getByRole("button", { name: "EN" })).toBeInTheDocument();
+    fireEvent.click(within(sidebar).getByRole("button", { name: en.header.theme.toLight }));
 
-    // Using the one in the menu updates the one in the header row as well.
-    fireEvent.click(themeToggles[1]);
-    expect(screen.getAllByRole("button", { name: en.header.theme.toDark })).toHaveLength(2);
+    // The header row's own toggle (hidden behind the open sidebar) followed along.
+    expect(
+      screen.getAllByRole("button", { name: en.header.theme.toDark, hidden: true }),
+    ).toHaveLength(2);
+  });
+
+  it("closes the sidebar when the window grows to desktop width", async () => {
+    let onChange: ((event: MediaQueryListEvent) => void) | undefined;
+    const original = window.matchMedia;
+    window.matchMedia = ((query: string) =>
+      ({
+        matches: false,
+        media: query,
+        addEventListener: (_type: string, listener: typeof onChange) => {
+          onChange = listener;
+        },
+        removeEventListener: () => {},
+      }) as unknown as MediaQueryList) as typeof window.matchMedia;
+
+    try {
+      openSidebar();
+      expect(screen.getByRole("dialog")).toBeInTheDocument();
+
+      act(() => onChange?.({ matches: true } as MediaQueryListEvent));
+
+      await waitFor(() => expect(screen.queryByRole("dialog")).not.toBeInTheDocument());
+    } finally {
+      window.matchMedia = original;
+    }
   });
 });

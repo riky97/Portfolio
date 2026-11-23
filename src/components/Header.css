@@ -85,17 +85,12 @@
   background: var(--color-text-primary);
 }
 
-/* Mobile menu: the links plus the language and theme controls, which do not
-   fit next to the name in the header row at phone widths. */
-.header__panel {
-  padding: var(--space-1) var(--space-3) var(--space-3);
-  background: var(--color-ink);
-  border-bottom: 1px solid var(--color-border);
-}
-
+/* Sidebar (a shadcn Sheet, portaled to <body>): the links plus the language and
+   theme controls, which do not fit next to the name in the header row. */
 .header__nav--mobile {
   display: flex;
   flex-direction: column;
+  padding: 0 var(--space-4);
   font-family: var(--font-mono);
   text-transform: uppercase;
   font-size: var(--fs-mono);
@@ -112,8 +107,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  margin-top: var(--space-1);
-  padding-top: var(--space-2);
+  padding-top: var(--space-3);
   border-top: 1px solid var(--color-border);
 }
 
@@ -125,12 +119,5 @@
   }
   .header__menu-toggle {
     display: flex;
-  }
-}
-
-/* A menu left open while the window grows must not linger. */
-@media (min-width: 901px) {
-  .header__panel {
-    display: none;
   }
 }

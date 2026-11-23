@@ -31,7 +31,8 @@ Signature: a telemetry / instrument-panel look, a nod to the ESA Grafana monitor
 
 - `<html class="dark">` is dark; no class is light. `useTheme` toggles it, stores the choice under `theme`, and every toggle on the page stays in step (the header and the mobile menu each render one).
 - The inline script in `index.html` applies the stored theme and language before the first paint. Keep it ahead of the stylesheets.
-- Tap targets are 44px on touch screens, which is why the language and theme controls move into the mobile menu: the header row has no room for them next to the name. The menu button appears at 900px, the width the Italian desktop row needs.
+- Tap targets are 44px on touch screens, which is why the language and theme controls move out of the header row on small screens: there is no room for them next to the name. The menu button appears at 900px, the width the Italian desktop row needs, and `Header` closes the sidebar if the window grows past it.
+- The mobile menu is a sidebar that slides in from the right: a shadcn `Sheet` (Radix Dialog), so focus trap, Escape, scrim click and scroll lock come built in. `ui/sheet.tsx` is tuned: full-width slide, a translated close label, and no outline or color transition on the panel. Reduced motion is covered by the global CSS rule, which also shortens the keyframes.
 
 ## shadcn/ui
 
@@ -53,7 +54,7 @@ Signature: a telemetry / instrument-panel look, a nod to the ESA Grafana monitor
 
 ## Tests
 
-Colocated `*.test.ts(x)` with explicit `vitest` imports (globals are off). `src/test/setup.ts` stubs `matchMedia` and `IntersectionObserver` for jsdom, and resets `localStorage`, `<html lang>` and the `dark` class after each test. Components render without a provider and fall back to English.
+Colocated `*.test.ts(x)` with explicit `vitest` imports (globals are off). `src/test/setup.ts` stubs `matchMedia` and `IntersectionObserver` for jsdom, and resets `localStorage`, `<html lang>` and the `dark` class after each test. Components render without a provider and fall back to English. An open Radix dialog marks the rest of the page `aria-hidden`, so query the header's own controls behind the sidebar with `{ hidden: true }`.
 
 ## Git
 

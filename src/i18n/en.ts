@@ -7,7 +7,9 @@ export const en = {
   },
   header: {
     primaryNav: "Primary",
-    menuToggle: "Toggle navigation menu",
+    openMenu: "Open navigation menu",
+    closeMenu: "Close menu",
+    menuTitle: "Menu",
     language: "Language",
     theme: {
       toLight: "Switch to light theme",

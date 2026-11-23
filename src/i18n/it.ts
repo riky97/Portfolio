@@ -8,7 +8,9 @@ export const it: Messages = {
   },
   header: {
     primaryNav: "Principale",
-    menuToggle: "Apri o chiudi il menu di navigazione",
+    openMenu: "Apri il menu di navigazione",
+    closeMenu: "Chiudi il menu",
+    menuTitle: "Menu",
     language: "Lingua",
     theme: {
       toLight: "Passa al tema chiaro",
